@@ -36,7 +36,7 @@ const NavBar = () => {
                                     <NavDropdown.Item href="/SupervisedAnalysis">Supervised Analysis</NavDropdown.Item>
                                     <NavDropdown.Item href="/UnsupervisedAnalysis">Unsupervised Analysis</NavDropdown.Item>
                                 </NavDropdown>
-                                <Nav.Link className="LogButton" href='/Logout'>Log Out</Nav.Link>
+                                
 
                             </>
                         ):(
