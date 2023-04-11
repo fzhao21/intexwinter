@@ -41,7 +41,9 @@
     "usernameAttributes": [
       "email"
     ],
-    "userPoolGroupList": [],
+    "userPoolGroupList": [
+      "intexpool"
+    ],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true,
