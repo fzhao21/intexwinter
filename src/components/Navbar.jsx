@@ -18,7 +18,7 @@ const NavBar = () => {
       };
     }, []);
   
-    const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+    const toggleDropdown = () => setDropdownOpen(!dropdownOpen)
 
     return (
         <Navbar className="Nav" expand="lg">
