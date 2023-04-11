@@ -1,8 +1,4 @@
 import "./App.css";
-import { Amplify } from "aws-amplify";
-import { withAuthenticator } from "@aws-amplify/ui-react";
-import "@aws-amplify/ui-react/styles.css";
-import awsExports from "./aws-exports";
 import logo from "./logo.svg";
 import Home from "./Pages/Home";
 import NavBar from "./components/Navbar";
@@ -18,6 +14,13 @@ import SupervisedAnalysis from "./Pages/SupervisedAnalysis";
 import UnsupervisedAnalysis from "./Pages/UnsupervisedAnalysis";
 import CookieFooter from "./components/CookieFooter";
 
+import { Amplify } from "aws-amplify";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+import awsExports from "./aws-exports";
+
+import { RBACProvider, RBACWrapper } from "react-simple-rbac";
+
 Amplify.configure(awsExports);
 
 function App({ signOut, user }) {
@@ -31,11 +34,16 @@ function App({ signOut, user }) {
     setIsAuthenticated(false);
   };
 
+  let groups = user.signInUserSession.accessToken.payload["cognito:groups"];
+  groups = groups[0]
+  console.log(groups)
+
   return (
     <>
+      <button onClick={signOut}>Sign out</button>
       <Router>
         <div className="bg-white">
-          <NavBar />
+          <NavBar groups={groups}/>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/Admin" element={<Admin />}></Route>
@@ -59,7 +67,6 @@ function App({ signOut, user }) {
             <Route exact path="/Logout" element={<Logout />}></Route>
             <Route exact path="/Login" element={<Login />}></Route>
           </Routes>
-          <button onClick={signOut}>Sign out</button>
         </div>
         <CookieFooter />
       </Router>
