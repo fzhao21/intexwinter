@@ -21,15 +21,15 @@ import CookieFooter from "./components/CookieFooter";
 Amplify.configure(awsExports);
 
 function App({ signOut, user }) {
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // const handleLogin = () => {
-  //   setIsAuthenticated(true);
-  // };
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
 
-  // const handleLogout = () => {
-  //   setIsAuthenticated(false);
-  // };
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  };
 
   return (
     <>
