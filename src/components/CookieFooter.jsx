@@ -18,7 +18,7 @@ export default function Navbar() {
         // }}
       >
         This website uses cookies to enhance the user experience.{" "}
-        <span style={{ fontSize: "10px" }}>small text</span>
+        <span style={{ fontSize: "10px" }}>change this text</span>
       </CookieConsent>
     </footer>
   );
