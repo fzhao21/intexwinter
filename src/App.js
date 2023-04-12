@@ -12,7 +12,7 @@ import Signup from "./Pages/CreateAccount";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import SupervisedAnalysis from "./Pages/SupervisedAnalysis";
 import UnsupervisedAnalysis from "./Pages/UnsupervisedAnalysis";
-import CookieFooter from "./components/CookieFooter";
+import { CookieFooter } from "./components/CookieFooter";
 
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
@@ -34,13 +34,13 @@ function App({ signOut, user }) {
   };
 
   let groups = user.signInUserSession.accessToken.payload["cognito:groups"];
-  groups = groups[0]
+  groups = groups[0];
 
   return (
     <>
       <Router>
         <div className="bg-white">
-          <NavBar signOut={signOut} groups={groups}/>
+          <NavBar signOut={signOut} groups={groups} />
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/Admin" element={<Admin />}></Route>
@@ -65,8 +65,8 @@ function App({ signOut, user }) {
             <Route exact path="/Login" element={<Login />}></Route>
           </Routes>
         </div>
-        <CookieFooter />
       </Router>
+      <CookieFooter />
     </>
   );
 }

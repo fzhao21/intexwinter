@@ -29,17 +29,17 @@ const Admin = () => {
     return(
         <>
             
-            <button class="button" onClick={handleOpenModalAdd}>
+            <button className="button" onClick={handleOpenModalAdd}>
                 Add User
-                <div class="button__horizontal"></div>
-                <div class="button__vertical"></div>
+                <div className="button__horizontal"></div>
+                <div className="button__vertical"></div>
                 <img src={addUserButton}></img>
             </button>
             <br></br>
-            <button class="button" onClick={handleOpenModalEdit}>
+            <button className="button" onClick={handleOpenModalEdit}>
                 Edit User
-                <div class="button__horizontal"></div>
-                <div class="button__vertical"></div>
+                <div className="button__horizontal"></div>
+                <div className="button__vertical"></div>
                 <img src={editUserButton}></img>
             </button>
     

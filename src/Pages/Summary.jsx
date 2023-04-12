@@ -28,17 +28,17 @@ const Summary = () => {
 
     return(
         <>  
-            <button class="button" onClick={handleOpenModalAdd}>
+            <button className="button" onClick={handleOpenModalAdd}>
                 Add Burial Record
-                <div class="button__horizontal"></div>
-                <div class="button__vertical"></div>
+                <div className="button__horizontal"></div>
+                <div className="button__vertical"></div>
                 <img src={addBurialButton}></img>
             </button>
             <br></br>
-            <button class="button" onClick={handleOpenModalEdit}>
+            <button className="button" onClick={handleOpenModalEdit}>
                 Edit Burial Record
-                <div class="button__horizontal"></div>
-                <div class="button__vertical"></div>
+                <div className="button__horizontal"></div>
+                <div className="button__vertical"></div>
                 <img src={editBurialButton}></img>
             </button>
     

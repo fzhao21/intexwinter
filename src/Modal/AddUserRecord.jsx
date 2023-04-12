@@ -10,9 +10,9 @@ const AddUserRecord = (props) => {
             </Modal.Header>
 
             <Modal.Body>
-            <form class="form__group field">
-                <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                <label for="name" class="form__label">Name</label>
+            <form className="form__group field">
+                <input type="input" className="form__field" placeholder="Name" name="name" id='name' required />
+                <label for="name" className="form__label">Name</label>
             </form>
             </Modal.Body>
 

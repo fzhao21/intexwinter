@@ -9,7 +9,7 @@ const AddBurialRecord = (props) => {
             <Modal.Title>Add Burial Record</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form class="AddBurialForm">
+                <form className="AddBurialForm">
                     <label for="textileColor">Textile Color</label>
                     <input type="input" placeholder="Textile Color" name="textileColor" id='textileColor' required />
                     <br></br>
@@ -47,7 +47,7 @@ const AddBurialRecord = (props) => {
             </Modal.Body>
             <Modal.Footer>
             <Button variant="secondary" onClick={props.handleCloseAdd}>Close</Button>
-            <button class="button-paper" role="button">Save</button>
+            <button className="button-paper" role="button">Save</button>
             </Modal.Footer>
         </Modal>
 

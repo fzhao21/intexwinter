@@ -1,25 +1,29 @@
 import CookieConsent from "react-cookie-consent";
 
-export default function Navbar() {
+function CookieFooter() {
   return (
     <footer>
       <CookieConsent
         location="bottom"
         buttonText="Accept"
-        style={{ background: "#2B373B" }}
-        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
-        // onAccept={(acceptedByScrolling) => {
-        //   if (acceptedByScrolling) {
-        //     // triggered if user scrolls past threshold
-        //     alert("Accept was triggered by user scrolling");
-        //   } else {
-        //     alert("Accept was triggered by clicking the Accept button");
-        //   }
-        // }}
+        cookieName="myCookieConsent"
+        expires={0}
+        style={{
+          background: "#f0f0f0",
+          color: "#333",
+          fontSize: "16px",
+        }}
+        buttonStyle={{
+          background: "#333",
+          color: "#fff",
+          fontSize: "16px",
+        }}
+        contentStyle={{ margin: "0 10px" }}
       >
-        This website uses cookies to enhance the user experience.{" "}
-        <span style={{ fontSize: "10px" }}>change this text</span>
+        This website uses cookies to enhance the user experience.
       </CookieConsent>
     </footer>
   );
 }
+
+export { CookieFooter };
