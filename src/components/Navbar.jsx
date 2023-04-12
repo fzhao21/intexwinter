@@ -13,7 +13,7 @@ import awsExports from "../aws-exports";
 
 Amplify.configure(awsExports);
 
-function NavBar({ groups }) {
+function NavBar({ signOut, groups }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const [isAuthenticated, setIsAuthenticated] = useState(true);
@@ -50,6 +50,7 @@ function NavBar({ groups }) {
                     Unsupervised Analysis
                   </NavDropdown.Item>
                 </NavDropdown>
+                <button onClick={signOut}>Sign out</button>
               </>
             ) : (
               <>

@@ -13,7 +13,6 @@ Amplify.configure(awsExports);
 
 function AdminLink({ groups }) {
   if (groups === "admin") {
-    console.log(groups);
     return <Nav.Link href="/Admin">Admin</Nav.Link>;
   }
 }

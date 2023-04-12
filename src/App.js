@@ -38,10 +38,9 @@ function App({ signOut, user }) {
 
   return (
     <>
-      <button onClick={signOut}>Sign out</button>
       <Router>
         <div className="bg-white">
-          <NavBar groups={groups}/>
+          <NavBar signOut={signOut} groups={groups}/>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/Admin" element={<Admin />}></Route>
