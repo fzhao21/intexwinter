@@ -50,15 +50,15 @@ function CookieFooter() {
         }}
       >
         <p>
-          We may use cookies in the future but currently we don't. We just made
-          this look cool if we ever decide to use cookies. Since we don't use
-          cookies, your selection here does not matter, but select whichever
-          option you like.
+          We only use one cookie on this site, which tracks whether or not you
+          have decided to accept cookies or not. Funny enough, if you decide to
+          not accept cookies, we will actually still keep a cookie stating that
+          you opted out of cookies.
         </p>
         <p>
-          By clicking "Accept", you consent to our use of cookies, of which
-          there are none. To learn more or opt-out of our non-existent cookies,
-          please see our <a href="/privacy-policy">Privacy Policy</a>.
+          By clicking "Accept", you consent to our use of a single cookie,
+          stating you accept our cookies. To learn more or opt-out of our single
+          cookie, please see our <a href="/privacy-policy">Privacy Policy</a>.
         </p>
       </CookieConsent>
     </footer>
