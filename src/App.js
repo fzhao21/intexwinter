@@ -19,7 +19,6 @@ import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import awsExports from "./aws-exports";
 
-import { RBACProvider, RBACWrapper } from "react-simple-rbac";
 
 Amplify.configure(awsExports);
 
