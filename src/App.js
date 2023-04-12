@@ -24,6 +24,7 @@ import { RBACProvider, RBACWrapper } from "react-simple-rbac";
 Amplify.configure(awsExports);
 
 function App({ signOut, user }) {
+  console.log(signOut)
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogin = () => {
@@ -40,10 +41,9 @@ function App({ signOut, user }) {
 
   return (
     <>
-      <button onClick={signOut}>Sign out</button>
       <Router>
         <div className="bg-white">
-          <NavBar groups={groups}/>
+          <NavBar groups={groups} signOut={signOut} />
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/Admin" element={<Admin />}></Route>

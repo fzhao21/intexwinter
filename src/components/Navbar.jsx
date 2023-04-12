@@ -13,7 +13,9 @@ import { RBACProvider, RBACWrapper } from "react-simple-rbac";
 
 Amplify.configure(awsExports);
 
-const NavBar = ({ groups }) => {
+
+const NavBar = ({ signOut, groups }) => {
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const [isAuthenticated, setIsAuthenticated] = useState(true);
@@ -58,6 +60,7 @@ const NavBar = ({ groups }) => {
                       Unsupervised Analysis
                     </NavDropdown.Item>
                   </NavDropdown>
+                  <button onClick={signOut}>Sign out</button>
                 </RBACProvider>
               </>
             ) : (
