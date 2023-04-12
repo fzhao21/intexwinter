@@ -6,19 +6,17 @@ import ReactPaginate from 'react-paginate';
 import { Table } from 'react-bootstrap';
 
 
-const Summary = () => {
-      
+const Summary = () => {      
     const [data, setData] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(10);
     const [item, setItem] = useState([]);
-    const [id, setID] = useState('')
-
-    
-    // const pagesVisited = currentPage * itemsPerPage;
-    
+    const [id, setID] = useState('');
+    const [updateItem, setUpdateItem] = useState([])
     const [modalAddOpen, setModalAddOpen] = useState(false);
     const [modalEditOpen, setModalEditOpen] = useState(false);
+    const [deleteFlag, setDeleteFlag] = useState(false);
+
 
     const handleOpenModalAdd = () => {
         setModalAddOpen(true);
@@ -29,8 +27,12 @@ const Summary = () => {
       setCurrentPage(0)
     };
   
-    const handleOpenModalEdit = () => {
-      setModalEditOpen(true);
+    const handleOpenModalEdit = (id) => {
+      setModalEditOpen(true)
+      const d = data.find((item) => item.id === id)
+      const dJSON = JSON.parse(JSON.stringify(d))
+      setUpdateItem(dJSON)
+
     };
   
     const handleCloseModalEdit = () => {
@@ -38,40 +40,54 @@ const Summary = () => {
       setCurrentPage(0)
     };
 
-    const handleDelete = (id) => {
+    const handleDelete = (id, data) => {
       const requestBody = {
         'id': id,
       };
 
-      const response = fetch('https://7o71cponk0.execute-api.us-west-1.amazonaws.com/data/delete', {
+      fetch('https://7o71cponk0.execute-api.us-west-1.amazonaws.com/data/delete', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(requestBody)
-      }).then(response =>response.json()).then(data => {
-          console.log('Success:', data);
+      })
+      .then(response =>response.json())
+      .then(data => {
+        setData(data);
+        fetchData(); 
       })
       .catch((error) => {
           console.error('Error', error, data);
       });
       console.log(requestBody)
-    };
-
+      setCurrentPage(1)
+      }
 
     useEffect(() => {
-      setData([])
-      async function fetchData() {
-        try {
-          const response = await fetch('https://7o71cponk0.execute-api.us-west-1.amazonaws.com/data/all');
-          const jsonData = await response.json();
-          setData(jsonData);
-        } catch (error) {
-          console.error(error);
-        }
-      }
       fetchData();
-    }, [currentPage]);
+    }, [currentPage, deleteFlag]);
+
+    useEffect(() => {
+      if (!modalAddOpen) {
+        setCurrentPage(1);;
+      }
+    }, [modalAddOpen]);
+
+    useEffect(() => {
+      if (!modalEditOpen) {
+        console.log("editUE")
+        setCurrentPage(1);;
+      }
+    }, [modalEditOpen]);
+    
+
+    const fetchData = () => {
+      fetch('https://7o71cponk0.execute-api.us-west-1.amazonaws.com/data/all')
+        .then(response => response.json())
+        .then(data => setData(data))
+        .catch(error => console.error('Error', error));
+    };
 
     const uniqueData = Array.from(new Set(data.map((item) => item.id))).map(
       (id) => {
@@ -97,14 +113,14 @@ const Summary = () => {
         <td style={{ color: item.structure_value === null ? 'lightgrey' : 'black' }}>{item.structure_value || 'N/A'}</td>
         <td style={{ color: item.textilefunction_value === null ? 'lightgrey' : 'black' }}>{item.textilefunction_value || 'N/A'}</td>
         <td>
-          <button className="button" onClick={handleOpenModalEdit}>
+          <button className="button" onClick={() => handleOpenModalEdit(item.id)}>
             Edit 
             <div className="button__horizontal"></div>
             <div className="button__vertical"></div>
           </button>
         </td>
         <td>
-          <button className="button" onClick={() => handleDelete(item.id)}>
+          <button className="button" onClick={() => handleDelete(item.id, data)} >
             Delete 
             <div className="button__horizontal"></div>
             <div className="button__vertical"></div>
@@ -161,8 +177,8 @@ const Summary = () => {
                 <img src={addBurialButton}></img>
             </button>
             <br></br>
-            <AddBurialRecord show={modalAddOpen} handleCloseAdd={handleCloseModalAdd} />
-            <EditBurialRecord show={modalEditOpen} handleCloseEdit={handleCloseModalEdit} />
+            <AddBurialRecord  show={modalAddOpen} handleCloseAdd={handleCloseModalAdd} />
+            <EditBurialRecord show={modalEditOpen} handleCloseEdit={handleCloseModalEdit} updateItem={updateItem}/>
         </>
     )
 }

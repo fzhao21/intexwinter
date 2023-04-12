@@ -31,14 +31,11 @@ function App({ signOut, user }) {
     setIsAuthenticated(false);
   };
 
-  let groups = user.signInUserSession.accessToken.payload["cognito:groups"];
-  groups = groups[0];
-
   return (
     <>
       <Router>
         <div className="bg-white">
-          <NavBar signOut={signOut} groups={groups} />
+          <NavBar signOut={signOut}></NavBar>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/Admin" element={<Admin />}></Route>
@@ -65,6 +62,7 @@ function App({ signOut, user }) {
         </div>
       </Router>
       <Login />
+      <Footer/>
       <CookieFooter />
       <Footer/>
 

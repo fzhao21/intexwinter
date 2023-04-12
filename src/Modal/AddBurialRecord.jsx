@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import test from './test'
 
 const AddBurialRecord = (props) => {
+
+    const {handleCloseAdd} = props;
+
     //define all props
     const[squarenorthsouth, setSquareNorthSouth] = useState('11')
     const[headdirection, setHeadDirection] = useState('1')
@@ -95,6 +98,8 @@ const AddBurialRecord = (props) => {
             console.error('Error', error);
         });
         console.log(requestBody)
+
+        handleCloseAdd(false)
       };
 
       //when user inputs into the fields
