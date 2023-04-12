@@ -10,7 +10,7 @@ function CookieFooter() {
         declineButtonText="Decline"
         enableDeclineButton
         cookieName="my-cookie-consent"
-        expires={150}
+        expires={0}
         overlay
         overlayOpacity={0.9}
         style={{
