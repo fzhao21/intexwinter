@@ -13,9 +13,7 @@ import { RBACProvider, RBACWrapper } from "react-simple-rbac";
 
 Amplify.configure(awsExports);
 
-
-const NavBar = ({ signOut, groups }) => {
-
+const NavBar = ({ groups }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const [isAuthenticated, setIsAuthenticated] = useState(true);
@@ -29,9 +27,6 @@ const NavBar = ({ signOut, groups }) => {
   }, []);
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
-
-  // const groups = user.signInUserSession.accessToken.payload["cognito:groups"];
-  console.log(groups);
 
   return (
     <Navbar className="Nav" expand="lg">
@@ -60,7 +55,6 @@ const NavBar = ({ signOut, groups }) => {
                       Unsupervised Analysis
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <button onClick={signOut}>Sign out</button>
                 </RBACProvider>
               </>
             ) : (

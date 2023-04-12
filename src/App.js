@@ -24,7 +24,6 @@ import { RBACProvider, RBACWrapper } from "react-simple-rbac";
 Amplify.configure(awsExports);
 
 function App({ signOut, user }) {
-  console.log(signOut)
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogin = () => {
@@ -37,13 +36,13 @@ function App({ signOut, user }) {
 
   let groups = user.signInUserSession.accessToken.payload["cognito:groups"];
   groups = groups[0]
-  console.log(groups)
 
   return (
     <>
+      <button onClick={signOut}>Sign out</button>
       <Router>
         <div className="bg-white">
-          <NavBar groups={groups} signOut={signOut} />
+          <NavBar groups={groups}/>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/Admin" element={<Admin />}></Route>
