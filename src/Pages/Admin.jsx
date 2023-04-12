@@ -36,6 +36,8 @@ const Admin = () => {
                 <img src={addUserButton}></img>
             </button>
             <br></br>
+            <br></br>
+            <br></br>
             <button className="button" onClick={handleOpenModalEdit}>
                 Edit User
                 <div className="button__horizontal"></div>

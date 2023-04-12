@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 const EditUserRecord = (props) => {
     return (
         <Modal show={props.show} onHide={props.handleClose} backdrop="static">
-            <Modal.Header>
+            <Modal.Header className="ModalHeader">
             <Modal.Title>Edit User Record</Modal.Title>
             </Modal.Header>
 
@@ -14,7 +14,7 @@ const EditUserRecord = (props) => {
 
             <Modal.Footer>
             <Button variant="secondary" onClick={props.handleCloseEdit}>Close</Button>
-            <Button variant="primary">Save changes</Button>
+            <button class="button-paper" role="button">Save</button>
             </Modal.Footer>
         </Modal>
     );

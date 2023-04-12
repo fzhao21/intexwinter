@@ -5,7 +5,7 @@ const AddUserRecord = (props) => {
 
     return (
         <Modal show={props.show} onHide={props.handleClose} backdrop="static">
-            <Modal.Header>
+            <Modal.Header className="ModalHeader">
             <Modal.Title>Add User Record</Modal.Title>
             </Modal.Header>
 
@@ -18,7 +18,7 @@ const AddUserRecord = (props) => {
 
             <Modal.Footer>
             <Button variant="secondary" onClick={props.handleCloseAdd}>Close</Button>
-            <Button variant="primary">Save changes</Button>
+            <button class="button-paper" role="button">Save</button>
             </Modal.Footer>
         </Modal>
     );

@@ -16,7 +16,7 @@ Amplify.configure(awsExports);
 function NavBar({ signOut, groups }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
 
   useEffect(() => {
     const closeDropdown = () => setDropdownOpen(false);

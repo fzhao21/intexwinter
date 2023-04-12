@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  overflow-y: scroll;
 }
 
 .App-logo {
@@ -105,6 +106,11 @@
   align-self: right;
 }
 
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:active{
+  background-color: rgba(197, 175, 155, 1);
+}
+
 
 .LogButton:hover {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
@@ -115,6 +121,10 @@
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
+.unauthenticatedHome {
+  margin-left: calc(0.1*100vw);
+  margin-right: calc(0.03*100vw);
+}
 /* Home */
 .Home{
   display: flex;
@@ -152,7 +162,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .link {
@@ -161,6 +171,12 @@ body {
   color: #000;
   text-decoration: none;
   display: flex;
+  margin-top: calc(0.1*100vh);
+  margin-right: calc(0.06*100vw);
+}
+
+.link :hover {
+  color: black;
 }
 
 /* Hide extra text */
@@ -193,11 +209,14 @@ body {
 
 .link-title1 {
   transform-origin: right center;
+  padding-right: calc(-0.03*100vw);
 }
 
 .link-title2 {
   transform-origin: left center;
   transform: rotate(20deg);
+  padding-right: calc(-0.03*100vw);
+
 }
 
 .link-icon {
@@ -237,10 +256,12 @@ body {
 /* Rotate texts a little bit */
 .link:hover .link-title1 {
   transform: rotate(20deg);
+  color: black;
 }
 
 .link:hover .link-title2 {
   transform: rotate(0);
+  color: black;
 }
 
 /* Move arrows to right */
@@ -261,12 +282,12 @@ body {
 }
 
 .button {
-  font-size: 13px;
+  font-size: 10px;
   --offset: 10px;
   --border-size: 2px;
   display: block;
-  position: relative;
-  padding: 0.6em 2em;
+  position: absolute;
+  padding: 0.2em 1em;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -301,7 +322,7 @@ body {
   border: inherit;
 }
 .button__horizontal {
-  --vertical-offset: calc(var(--offset) * -1);
+  --vertical-offset: calc(var(--offset) * -0.5);
   border-top: var(--border-size) solid currentcolor;
   border-bottom: var(--border-size) solid currentcolor;
 }
@@ -315,7 +336,7 @@ body {
   transform: scaleX(0);
 }
 .button__vertical {
-  --horizontal-offset: calc(var(--offset) * -1);
+  --horizontal-offset: calc(var(--offset) * -0.5);
   border-left: var(--border-size) solid currentcolor;
   border-right: var(--border-size) solid currentcolor;
 }
@@ -330,15 +351,17 @@ body {
 }
 
 .button img {
-  height: calc(0.03*100vh);
+  height: calc(0.02*100vh);
 }
 
-.AddBurialForm {
-  line-height: 1.5rem;
-}
+/* .AddBurialForm {
+  line-height: 1.9rem;
+} */
 
 .AddBurialForm label{
   margin-right: calc(0.01*100vw);
+  padding-top: calc(0.008*100vh);
+  font-weight: 500;
 
 }
 
@@ -400,4 +423,46 @@ input {
 
 .ModalHeader {
   background-color: rgba(194, 148, 107, 0.71);
+}
+
+.BurialTable{
+  overflow: scroll;
+  position: relative;
+  font-size: 14px;
+}
+
+.BurialTableHead {
+  padding-top: 100px;
+}
+
+.pagination a{
+  display: block;
+  margin-right: 5px;
+  color: black;
+}
+
+.pagination a:hover{
+  color: rgba(194, 148, 107, 0.71);
+}
+
+.BurialTableHead td{
+  padding-top: 100px !important;
+}
+
+.BurialData th {
+  padding-top: 100px;
+}
+
+.editColumn {
+  width: 90px !important;
+}
+
+.Footer {
+  height: calc(0.08*100vh);
+  background-color: rgba(197, 175, 155, 1);
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 10px;
 }

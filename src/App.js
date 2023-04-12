@@ -19,6 +19,21 @@ import "@aws-amplify/ui-react/styles.css";
 import { Amplify } from "aws-amplify";
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
+import logo from './logo.svg';
+import Home from './Pages/Home';
+import NavBar from './components/Navbar';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Summary from './Pages/Summary';
+import Login from './Pages/Login'
+import Logout from './Pages/Logout'
+import Admin from './Pages/Admin'
+import Signup from './Pages/CreateAccount'
+import PrivacyPolicy from './Pages/PrivacyPolicy'
+import SupervisedAnalysis from './Pages/SupervisedAnalysis'
+import UnsupervisedAnalysis from './Pages/UnsupervisedAnalysis'
+import CookieFooter from './components/CookieFooter'
+import Footer from "./components/Footer";
 
 function App({ signOut, user }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
