@@ -57,7 +57,7 @@ function CookieFooter() {
         </p>
         <p>
           By clicking "Accept", you consent to our use of a single cookie,
-          stating you accept our cookies. To learn more or opt-out of our single
+          stating if you accept our cookies. To learn more or opt-out of our single
           cookie, please see our <a href="/privacy-policy">Privacy Policy</a>.
         </p>
       </CookieConsent>
