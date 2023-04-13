@@ -18,7 +18,7 @@ const AddUserRecord = (props) => {
 
             <Modal.Footer>
             <Button variant="secondary" onClick={props.handleCloseAdd}>Close</Button>
-            <button class="button-paper" role="button">Save</button>
+            <button className="button-paper" role="button">Save</button>
             </Modal.Footer>
         </Modal>
     );
