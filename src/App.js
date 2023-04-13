@@ -35,6 +35,7 @@ function App({ signOut, user }) {
   let groups = user.signInUserSession.accessToken.payload["cognito:groups"];
   groups = groups[0];
 
+  
   return (
     <>
       <Router>
@@ -67,7 +68,7 @@ function App({ signOut, user }) {
       </Router>
       <Login />
       <CookieFooter />
-      
+
     </>
   );
 }
