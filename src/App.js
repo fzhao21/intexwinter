@@ -8,7 +8,7 @@ import Summary from "./Pages/Summary";
 import Login from "./Pages/Login";
 import Logout from "./Pages/Logout";
 import Admin from "./Pages/Admin";
-import Signup from "./Pages/CreateAccount";
+import Signup from "./Pages/Signup";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import SupervisedAnalysis from "./Pages/SupervisedAnalysis";
 import UnsupervisedAnalysis from "./Pages/UnsupervisedAnalysis";
@@ -16,7 +16,7 @@ import CookieFooter from "./components/CookieFooter";
 import Footer from "./components/Footer";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import { Amplify } from "aws-amplify";
+import { Auth, Amplify } from "aws-amplify";
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
 
@@ -31,11 +31,15 @@ function App({ signOut, user }) {
     setIsAuthenticated(false);
   };
 
+  // let groups = user.signInUserSession.accessToken.payload["cognito:groups"];
+  // groups = groups[0];
+  const groups = "";
+
   return (
     <>
       <Router>
         <div className="bg-white">
-          <NavBar signOut={signOut}></NavBar>
+          <NavBar signOut={signOut} groups={groups} />
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/Admin" element={<Admin />}></Route>
@@ -61,15 +65,10 @@ function App({ signOut, user }) {
           </Routes>
         </div>
       </Router>
-      <Login />
-      <Footer/>
       <CookieFooter />
-      <Footer/>
-
+      <Footer />
     </>
   );
 }
 
-export default withAuthenticator(App, {
-  mfa: "TOTP",
-});
+export default App;

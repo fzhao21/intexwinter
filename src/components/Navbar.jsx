@@ -4,19 +4,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import AdminLink from './AdminLink'
+import AdminLink from "./AdminLink";
 
 import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import awsExports from "../aws-exports";
-
 
 Amplify.configure(awsExports);
 
 function NavBar({ signOut, groups }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   useEffect(() => {
     const closeDropdown = () => setDropdownOpen(false);
