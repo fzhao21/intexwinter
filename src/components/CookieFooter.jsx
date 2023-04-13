@@ -43,10 +43,10 @@ function CookieFooter() {
           marginLeft: "10px",
         }}
         onAccept={() => {
-          // Handle cookie acceptance
+          console.log('accepted cookies')
         }}
         onDecline={() => {
-          // Handle cookie decline
+          console.log('declined cookies')
         }}
       >
         <p>
