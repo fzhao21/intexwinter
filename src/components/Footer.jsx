@@ -1,16 +1,22 @@
 import React from 'react';
+import PrivacyPolicy from '../Pages/PrivacyPolicy';
 
 
 const Footer = () => {
   return (
     <>
-    <footer id="sticky-footer" className="flex-shrink-0 py-4 text-white-50 Footer">
+      <footer
+        id="sticky-footer"
+        className="flex-shrink-0 py-4 text-white-50 Footer"
+      >
         <div className="container text-center">
-        <small>Copyright &copy; Your Website</small>
+          <small>
+            <a href="/PrivacyPolicy">privacy policy</a>
+          </small>
         </div>
-    </footer>
+      </footer>
     </>
-    );
+  );
 }
 
 export default Footer

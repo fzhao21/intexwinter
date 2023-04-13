@@ -14,7 +14,6 @@ import SupervisedAnalysis from "./Pages/SupervisedAnalysis";
 import UnsupervisedAnalysis from "./Pages/UnsupervisedAnalysis";
 import CookieFooter from "./components/CookieFooter";
 import Footer from "./components/Footer";
-
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Amplify } from "aws-amplify";
@@ -67,6 +66,7 @@ function App({ signOut, user }) {
       </Router>
       <Login />
       <CookieFooter />
+      <Footer/>
 
     </>
   );
