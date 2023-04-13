@@ -5,17 +5,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import AdminLink from "./AdminLink";
+import Logout from "../Pages/Logout";
 
 import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import awsExports from "../aws-exports";
-
 Amplify.configure(awsExports);
 
-function NavBar({ signOut, groups }) {
+function NavBar({ signOut, groups, authenticated, user }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
 
   useEffect(() => {
     const closeDropdown = () => setDropdownOpen(false);
@@ -25,6 +25,14 @@ function NavBar({ signOut, groups }) {
     };
   }, []);
 
+  groups = "";
+  if (
+    isAuthenticated &&
+    user.signInUserSession.accessToken.payload.hasOwnProperty("cognito:groups")
+  ) {
+    groups = user.signInUserSession.accessToken.payload["cognito:groups"];
+    groups = groups[0];
+  }
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   return (
@@ -36,7 +44,7 @@ function NavBar({ signOut, groups }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto links">
-            {isAuthenticated ? (
+            {isAuthenticated === true ? (
               <>
                 <Nav.Link href="/">Home</Nav.Link>
                 <AdminLink groups={groups} />
@@ -49,12 +57,21 @@ function NavBar({ signOut, groups }) {
                     Unsupervised Analysis
                   </NavDropdown.Item>
                 </NavDropdown>
-                <button onClick={signOut}>Sign out</button>
+                <Logout user={user} authenticated={isAuthenticated} />
               </>
             ) : (
               <>
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link className="LogButton" to="/Login">
+                <Nav.Link href="/Summary">Summary</Nav.Link>
+                <NavDropdown title="Analysis" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/SupervisedAnalysis">
+                    Supervised Analysis
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/UnsupervisedAnalysis">
+                    Unsupervised Analysis
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <Nav.Link className="LogButton" href="/Login">
                   Log In
                 </Nav.Link>
               </>
