@@ -43,23 +43,22 @@ function CookieFooter() {
           marginLeft: "10px",
         }}
         onAccept={() => {
-          console.log('accepted cookies')
+          console.log("accepted cookies");
         }}
         onDecline={() => {
-          console.log('declined cookies')
+          console.log("declined cookies");
         }}
       >
         <p>
-          We only use one cookie on this site, which tracks whether or not you
-          have decided to accept cookies or not. Funny enough, if you decide to
-          not accept cookies, we will actually still keep a cookie stating that
-          you opted out of cookies.
+          The only cookies on this site are essential to the functioning of the
+          site. By continuing on this site, you consent to the use of these
+          essential cookies.
         </p>
         <p>
           By clicking "Accept", you consent to our use of a single cookie,
           stating if you accept our cookies. To learn more or opt-out of our
           single cookie, please see our{" "}
-          <a href="/privacy-policy">Privacy Policy</a>.
+          <a href="/PrivacyPolicy">Privacy Policy</a>.
         </p>
       </CookieConsent>
     </footer>
