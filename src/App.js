@@ -67,6 +67,7 @@ function App({ signOut, user }) {
       </Router>
       <Login />
       <CookieFooter />
+      
     </>
   );
 }
