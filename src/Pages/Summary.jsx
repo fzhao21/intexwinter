@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import EditBurialRecord from '../Modal/EditBurialRecord';
 import AddBurialRecord from '../Modal/AddBurialRecord';
 import addBurialButton from '../img/AddRecordIcon.png'
@@ -9,13 +9,10 @@ const Summary = () => {
     const [data, setData] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(10);
-    const [item, setItem] = useState([]);
-    const [id, setID] = useState('');
     const [updateItem, setUpdateItem] = useState([])
     const [modalAddOpen, setModalAddOpen] = useState(false);
     const [modalEditOpen, setModalEditOpen] = useState(false);
     const [deleteFlag, setDeleteFlag] = useState(false);
-
 
     const handleOpenModalAdd = () => {
         setModalAddOpen(true);
@@ -54,7 +51,7 @@ const Summary = () => {
       .then(response =>response.json())
       .then(data => {
         setData(data);
-        fetchData(); 
+        fetchData();
       })
       .catch((error) => {
           console.error('Error', error, data);
@@ -78,8 +75,7 @@ const Summary = () => {
         console.log("editUE")
         setCurrentPage(1);;
       }
-    }, [modalEditOpen]);
-    
+    }, [modalEditOpen])
 
     const fetchData = () => {
       fetch('https://7o71cponk0.execute-api.us-west-1.amazonaws.com/data/all')
@@ -93,7 +89,6 @@ const Summary = () => {
         return data.find((item) => item.id === id);
       }
     );
-
     const pageCount = Math.ceil(uniqueData.length / itemsPerPage);
 
     const displayData = uniqueData
@@ -107,7 +102,7 @@ const Summary = () => {
         <td style={{ color: item.estimateStature === null ? 'lightgrey' : 'black' }}>{item.estimateStature || 'N/A'}</td>
         <td style={{ color: item.haircolor === null ? 'lightgrey' : 'black' }}>{item.haircolor || 'N/A'}</td>
         <td style={{ color: item.depth === null ? 'lightgrey' : 'black' }}>{item.depth || 'N/A'}</td>
-        <td style={{ color: item.composite_ID === null ? 'lightgrey' : 'black' }}>{item.composite_ID || 'N/A'}</td>
+        <td style={{ color: item.burialid === null ? 'lightgrey' : 'black' }}>{item.burialid || 'N/A'}</td>
         <td style={{ color: item.color_value === null ? 'lightgrey' : 'black' }}>{item.color_value || 'N/A'}</td>
         <td style={{ color: item.structure_value === null ? 'lightgrey' : 'black' }}>{item.structure_value || 'N/A'}</td>
         <td style={{ color: item.textilefunction_value === null ? 'lightgrey' : 'black' }}>{item.textilefunction_value || 'N/A'}</td>
@@ -134,23 +129,49 @@ const Summary = () => {
     };
 
     return(
-        <> 
+        <div style={{ width: "100%", overflowX: "auto", overflowY: "scroll" }}> 
           <Table className="BurialTable" striped bordered hover>
             <thead className="BurialTableHead">
               <tr>
-                <th>ID</th>
-                <th>Head Direction</th>
-                <th>Sex</th>
-                <th>Age at Death</th>
-                <th>Estimated Stature</th>
-                <th>Hair Color</th>
-                <th>Depth</th>
-                <th>Composite_ID</th>
-                <th>Textile Value</th>
-                <th>Texile Structure</th>
-                <th>Textile Function</th>
-                <th className="editColumn">Edit</th>
-                <th className="editColumn">Delete</th>
+                <th style={{ width: "calc(0.9*100vw) !important"}}>
+                  ID<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Head Direction<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Sex<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Age at Death<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Estimated Stature<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Hair Color<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Depth<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Burial ID<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Color Value<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Texile Structure<br></br>
+                </th>
+                <th style={{ width: "calc(0.6*100vw) !important"}}>
+                  Textile Function<br></br>
+                </th>
+                <th className="editColumn">
+                  Edit
+                </th>
+                <th className="editColumn">
+                  Delete
+                </th>
               </tr>
             </thead>
             <tbody className="BurialData">{displayData}</tbody>
@@ -169,7 +190,7 @@ const Summary = () => {
             marginPagesDisplayed={5}
             pageRangeDisplayed={2}
           />
-            <button className="button" onClick={handleOpenModalAdd}>
+            <button className="add button" onClick={handleOpenModalAdd}>
                 Add Burial Record
                 <div className="button__horizontal"></div>
                 <div className="button__vertical"></div>
@@ -178,7 +199,7 @@ const Summary = () => {
             <br></br>
             <AddBurialRecord  show={modalAddOpen} handleCloseAdd={handleCloseModalAdd} />
             <EditBurialRecord show={modalEditOpen} handleCloseEdit={handleCloseModalEdit} updateItem={updateItem}/>
-        </>
+        </div>
     )
 }
 
