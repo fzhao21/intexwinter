@@ -52,7 +52,7 @@ function NavBar({ signOut, groups, authenticated, user }) {
                   Home
                 </Nav.Link>
                 <AdminLink groups={groups} />
-                <NavDropdown title="Analysis" id="basic-nav-dropdown">
+                <NavDropdown title="Data" id="basic-nav-dropdown">
                   <NavDropdown.Item
                     as={Link}
                     to="/Summary"
@@ -80,7 +80,7 @@ function NavBar({ signOut, groups, authenticated, user }) {
                   Home
                 </Nav.Link>
                 <AdminLink groups={groups} />
-                <NavDropdown title="Analysis" id="basic-nav-dropdown">
+                <NavDropdown title="Data" id="basic-nav-dropdown">
                   <NavDropdown.Item
                     as={Link}
                     to="/Summary"
