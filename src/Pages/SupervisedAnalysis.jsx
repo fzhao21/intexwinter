@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SupervisedAnalysis = props => {
+const SupervisedAnalysis = (props) => {
     return(
         <>
             <div>

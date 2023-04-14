@@ -96,7 +96,7 @@ const Filter = () => {
             placeholder="ID"
             onChange={(event) => handleFilterChange(event, "id")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter ID 
             <div className="button__horizontal"></div>
@@ -110,7 +110,7 @@ const Filter = () => {
             value={filters.headdirection}
             onChange={(event) => handleFilterChange(event, "headdirection")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Head Direction 
             <div className="button__horizontal"></div>
@@ -124,7 +124,7 @@ const Filter = () => {
             value={filters.sex}
             onChange={(event) => handleFilterChange(event, "sex")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Sex 
             <div className="button__horizontal"></div>
@@ -138,7 +138,7 @@ const Filter = () => {
             value={filters.ageatdeath}
             onChange={(event) => handleFilterChange(event, "ageatdeath")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Age at Death 
             <div className="button__horizontal"></div>
@@ -152,7 +152,7 @@ const Filter = () => {
             value={filters.estimatedStature}
             onChange={(event) => handleFilterChange(event, "estimatedStature")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Estimated Stature 
             <div className="button__horizontal"></div>
@@ -166,7 +166,7 @@ const Filter = () => {
             value={filters.haircolor}
             onChange={(event) => handleFilterChange(event, "haircolor")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Hair Color 
             <div className="button__horizontal"></div>
@@ -180,7 +180,7 @@ const Filter = () => {
             value={filters.depth}
             onChange={(event) => handleFilterChange(event, "depth")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Depth 
             <div className="button__horizontal"></div>
@@ -194,7 +194,7 @@ const Filter = () => {
             value={filters.burialid}
             onChange={(event) => handleFilterChange(event, "burialid")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Burial ID 
             <div className="button__horizontal"></div>
@@ -208,7 +208,7 @@ const Filter = () => {
             value={filters.color_value}
             onChange={(event) => handleFilterChange(event, "color_value")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Color Value 
             <div className="button__horizontal"></div>
@@ -222,7 +222,7 @@ const Filter = () => {
             value={filters.structure_value}
             onChange={(event) => handleFilterChange(event, "structure_value")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Textile Structure
             <div className="button__horizontal"></div>
@@ -236,7 +236,7 @@ const Filter = () => {
             value={filters.textilefunction_value}
             onChange={(event) => handleFilterChange(event, "textilefunction_value")}
           />
-          <div class="line"></div>
+          <div className="line"></div>
           <button className="button" onClick={handleFilterSubmit}>
             Filter Textile Function 
             <div className="button__horizontal"></div>
