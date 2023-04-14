@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import Home from "./Pages/Home";
 import NavBar from "./components/Navbar";
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Summary from "./Pages/Summary";
 import Login from "./Pages/Login";
 import Logout from "./Pages/Logout";
@@ -14,6 +14,7 @@ import SupervisedAnalysis from "./Pages/SupervisedAnalysis";
 import UnsupervisedAnalysis from "./Pages/UnsupervisedAnalysis";
 import CookieFooter from "./components/CookieFooter";
 import Footer from "./components/Footer";
+import Filter from './Pages/Filter';
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Auth, Amplify } from "aws-amplify";
@@ -34,15 +35,15 @@ function App({ signOut, user }) {
   const groups = "";
 
   return (
-    <>
-      <Router>
+      <BrowserRouter>
         <div className="bg-white">
           <NavBar signOut={signOut} groups={groups} />
           <Routes>
-            <Route exact path="/" element={<Home />}></Route>
-            <Route exact path="/Admin" element={<Admin />}></Route>
-            <Route exact path="/Summary" element={<Summary />}></Route>
-            <Route exact path="/Signup" element={<Signup />}></Route>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="Admin" element={<Admin />}></Route>
+            <Route path="Summary" element={<Summary />}></Route>
+            <Route path="Filter" element={<Filter />}></Route>
+            <Route path="/Signup" element={<Signup />}></Route>
             <Route
               exact
               path="/PrivacyPolicy"
@@ -62,10 +63,10 @@ function App({ signOut, user }) {
             <Route exact path="/Login" element={<Login />}></Route>
           </Routes>
         </div>
-      </Router>
-      <CookieFooter />
-      <Footer />
-    </>
+        <Login />
+        <CookieFooter />
+        <Footer/>
+      </BrowserRouter>
   );
 }
 

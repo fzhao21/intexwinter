@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
-
+import { NavLink } from 'react-router-dom';
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+<<<<<<< HEAD
 import AdminLink from "./AdminLink";
 import Logout from "../Pages/Logout";
+=======
+import AdminLink from './AdminLink'
+import App from '../App'
+>>>>>>> a5a4e5d (css and filtering)
 
 import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
@@ -38,7 +43,7 @@ function NavBar({ signOut, groups, authenticated, user }) {
   return (
     <Navbar className="Nav" expand="lg">
       <Container>
-        <Navbar.Brand to="/" className="Title">
+        <Navbar.Brand as={NavLink} to="/" className="Title">
           Fag el-Gamous
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -46,17 +51,25 @@ function NavBar({ signOut, groups, authenticated, user }) {
           <Nav className="me-auto links">
             {isAuthenticated === true ? (
               <>
-                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link as={NavLink} to="/">Home</Nav.Link>
                 <AdminLink groups={groups} />
-                <Nav.Link href="/Summary">Summary</Nav.Link>
+                <NavDropdown title="Summary" id="basic-nav-dropdown">
+                  <NavDropdown.Item as={NavLink} to="/Summary">
+                    Summary
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/Filter">
+                    Filter                  
+                  </NavDropdown.Item>
+                </NavDropdown>
                 <NavDropdown title="Analysis" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/SupervisedAnalysis">
+                  <NavDropdown.Item as={NavLink} to="/SupervisedAnalysis">
                     Supervised Analysis
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="/UnsupervisedAnalysis">
+                  <NavDropdown.Item as={NavLink} to="/UnsupervisedAnalysis">
                     Unsupervised Analysis
                   </NavDropdown.Item>
                 </NavDropdown>
+<<<<<<< HEAD
                 <Logout user={user} authenticated={isAuthenticated} />
               </>
             ) : (
@@ -72,6 +85,14 @@ function NavBar({ signOut, groups, authenticated, user }) {
                   </NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link className="LogButton" href="/Login">
+=======
+                <button className="LogButton" onClick={signOut}>Sign out</button>
+              </>
+            ) : (
+              <>
+                <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                <Nav.Link as={NavLink} className="LogButton" to="/Login">
+>>>>>>> a5a4e5d (css and filtering)
                   Log In
                 </Nav.Link>
               </>

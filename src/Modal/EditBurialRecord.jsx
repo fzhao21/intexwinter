@@ -508,8 +508,8 @@ const EditBurialRecord = (props) => {
                     <label htmlFor="shaftnumber">Shaft Number</label>
                     <input type="input" value={shaftnumber} placeholder="S-1" name="shaftnumber" id='shaftnumber'  onChange={handleInputChange}/>
                     <br></br>
-                    <Button variant="secondary" onClick={props.handleCloseEdit}>Close</Button>
-                    <button type="submit" className="button-paper">Save</button>
+                    <Button className="modalButton" variant="secondary" onClick={props.handleCloseEdit}>Close</Button>
+                    <button type="submit" className="button-paper">Update</button>
                 </form>
             </Modal.Body>
         </Modal>

@@ -123,13 +123,17 @@
   margin-right: calc(0.03 * 100vw);
 }
 /* Home */
-.Home {
+.Home{
+  margin-top: calc(0.13*100vh);
   display: flex;
+  overflow: hidden;
+  overflow-y:hidden
 }
 
 .Home img {
   height: calc(0.87 * 100vh);
   display: inline-block;
+  bottom:0;
 }
 
 .Home .projectDescription {
@@ -151,12 +155,26 @@
 
 body {
   font-family: "Quicksand", sans-serif;
-  width: 100%;
+  width: auto;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: scroll;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .link {
@@ -264,12 +282,17 @@ body {
   transform: translate(0px);
 }
 
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: #fcf3ec;
+} */
+
+.add{
+  margin-left: calc(0.2*100vw);
+  margin-top: calc(-0.04*100vh);
 }
 
 .button {
@@ -448,6 +471,17 @@ input {
   width: 90px !important;
 }
 
+.BurialTable input {
+  width: calc(0.05*100vw);
+  font-size: 10px !important;
+
+}
+
+.IDinput {
+  width: calc(0.07*100vw) !important;
+
+}
+
 .Footer {
   height: calc(0.08 * 100vh);
   background-color: rgba(197, 175, 155, 1);
@@ -457,4 +491,76 @@ input {
   width: 100%;
   font-size: 10px;
 }
+<<<<<<< HEAD
 /*  */
+=======
+
+.scroll{
+  overflow-y: visible scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FilterForm {
+  position: fixed;
+  top: calc(0.15*100vh);
+  left: calc(0.38*100vw);
+  width: 100%;
+  height: 50px;
+}
+
+.FilterTable {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+  max-height:calc(100vh - 50px);
+  margin-top: calc(49vh) !important;
+}
+
+.FilterForm input {
+  background: 0;
+  border: 0;
+  outline: none;
+  width: 40vw;
+  max-width: 400px;
+  font-size: 1.5em;
+  transition: padding 0.3s 0.2s ease;
+  line-height: 2.5;
+}
+.FilterForm input:focus {
+  padding-bottom: 0px;
+}
+.FilterForm input:focus + .line:after {
+  transform: scaleX(1);
+}
+.field {
+  position: relative;
+}
+.field .line {
+  width: 15%;
+  height: 1px;
+  position: absolute;
+  background: black;
+}
+.field .line:after {
+  content: " ";
+  position: absolute;
+  float: right;
+  width: 100%;
+  height: 2px;
+  transform: scalex(0);
+  transition: transform 0.3s ease;
+  background: rgba(197, 175, 155, 1);
+}
+
+.FilterForm button{
+  margin-left: calc(0.158*100vw);
+  margin-top: calc(-0.025*100vh);
+}
+
+.modalButton {
+  margin-left: calc(0.15*100vw);
+  margin-right: calc(0.01*100vw)
+}
+>>>>>>> 2de4cc9 (pls)
