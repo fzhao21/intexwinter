@@ -9,8 +9,8 @@ import Logout from "../Pages/Logout";
 
 import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
-//import awsExports from "../aws-exports";
-//Amplify.configure(awsExports);
+import awsExports from "../aws-exports";
+Amplify.configure(awsExports);
 
 function NavBar({ signOut, groups, authenticated, user }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
