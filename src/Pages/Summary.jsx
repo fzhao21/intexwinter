@@ -17,9 +17,6 @@ const Summary = () => {
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
 
-
-  console.log(isAuthenticated);
-
   const handleOpenModalAdd = () => {
     setModalAddOpen(true);
   };
@@ -41,10 +38,6 @@ const Summary = () => {
     setCurrentPage(0);
   };
 
-  const handleDelete = (id, data) => {
-    const requestBody = {
-      id: id,
-    };
 
     const toggleConfirmation = (id) => {
       setSelectedId(id);
@@ -260,83 +253,5 @@ const Summary = () => {
         </div>
     )
 }
-
-  return (
-    <div style={{ width: "100%", overflowX: "auto", overflowY: "scroll" }}>
-      <Table className="BurialTable" striped bordered hover>
-        <thead className="BurialTableHead">
-          <tr>
-            <th style={{ width: "calc(0.9*100vw) !important" }}>
-              ID<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Head Direction<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Sex<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Age at Death<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Estimated Stature<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Hair Color<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Depth<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Burial ID<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Color Value<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Texile Structure<br></br>
-            </th>
-            <th style={{ width: "calc(0.6*100vw) !important" }}>
-              Textile Function<br></br>
-            </th>
-            <th className="editColumn">Edit</th>
-            <th className="editColumn">Delete</th>
-          </tr>
-        </thead>
-        <tbody className="BurialData">{displayData}</tbody>
-      </Table>
-      <ReactPaginate
-        className="pagination"
-        previousLabel="Previous"
-        nextLabel="Next"
-        pageCount={pageCount}
-        onPageChange={handlePageClick}
-        containerClassName="pagination"
-        previousClassName="pagination__prev"
-        nextClassName="pagination__next"
-        disabledClassName="pagination__disabled"
-        activeClassName="pagination__active"
-        marginPagesDisplayed={5}
-        pageRangeDisplayed={2}
-      />
-      <button className="add button" onClick={handleOpenModalAdd}>
-        Add Burial Record
-        <div className="button__horizontal"></div>
-        <div className="button__vertical"></div>
-        <img src={addBurialButton}></img>
-      </button>
-      <br></br>
-      <AddBurialRecord
-        show={modalAddOpen}
-        handleCloseAdd={handleCloseModalAdd}
-      />
-      <EditBurialRecord
-        show={modalEditOpen}
-        handleCloseEdit={handleCloseModalEdit}
-        updateItem={updateItem}
-      />
-    </div>
-  );
-};
 
 export default Summary;
