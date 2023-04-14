@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import pyramid from "../img/pyramid.jpg";
 import { CookieFooter } from "../components/CookieFooter";
+import { NavLink } from "react-router-dom";
 
-const Home = (props) => {
+const Home = ({ authenticated }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(authenticated)
+  console.log(isAuthenticated);
   return (
     <>
       <div className="Home">
@@ -33,7 +36,7 @@ const Home = (props) => {
             </p>
           </div>
         </div>
-        <a href="/Summary" className="link">
+        <NavLink as={NavLink} to="/Summary" className="link">
           <span className="mask">
             <div className="link-container">
               <span className="link-title1 title">Burial Records</span>
@@ -62,7 +65,7 @@ const Home = (props) => {
               <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
             </svg>
           </div>
-        </a>
+        </NavLink>
       </div>
       <div className="link-icon">
         <svg

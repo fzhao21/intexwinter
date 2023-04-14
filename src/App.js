@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Summary from "./Pages/Summary";
 import Login from "./Pages/Login";
 import Logout from "./Pages/Logout";
+import Filter from "./Pages/Filter";
 import Admin from "./Pages/Admin";
 import Signup from "./Pages/Signup";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
@@ -18,9 +19,8 @@ import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Auth, Amplify } from "aws-amplify";
 
-
-function App({ signOut, user }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+function App({ signOut, user, authenticated }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
 
   const handleLogin = () => {
     setIsAuthenticated(true);
@@ -38,29 +38,24 @@ function App({ signOut, user }) {
     <>
       <Router>
         <div className="bg-white">
-          <NavBar signOut={signOut} groups={groups} />
+          <NavBar authenticated={authenticated} groups={groups} />
           <Routes>
-            <Route exact path="/" element={<Home />}></Route>
-            <Route exact path="/Admin" element={<Admin />}></Route>
-            <Route exact path="/Summary" element={<Summary />}></Route>
-            <Route exact path="/Signup" element={<Signup />}></Route>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/Admin" element={<Admin />}></Route>
+            <Route path="/Summary" element={<Summary />}></Route>
+            <Route path="/Signup" element={<Signup />}></Route>
+            <Route path="/Filter" element={<Filter />}></Route>
+            <Route path="/PrivacyPolicy" element={<PrivacyPolicy />}></Route>
             <Route
-              exact
-              path="/PrivacyPolicy"
-              element={<PrivacyPolicy />}
-            ></Route>
-            <Route
-              exact
               path="/SupervisedAnalysis"
               element={<SupervisedAnalysis />}
             ></Route>
             <Route
-              exact
               path="/UnsupervisedAnalysis"
               element={<UnsupervisedAnalysis />}
             ></Route>
-            <Route exact path="/Logout" element={<Logout />}></Route>
-            <Route exact path="/Login" element={<Login />}></Route>
+            <Route path="/Logout" element={<Logout />}></Route>
+            <Route path="/Login" element={<Login />}></Route>
           </Routes>
         </div>
       </Router>

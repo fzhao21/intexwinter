@@ -1,13 +1,3 @@
-<!--
-
-To run this demo, you need to replace 'YOUR_API_KEY' with an API key from the ArcGIS Developers dashboard.
-
-Sign up for a free account and get an API key.
-
-https://developers.arcgis.com/documentation/mapping-apis-and-services/get-started/
-
--->
-
 <html>
   <head>
     <meta charset="utf-8" />
@@ -15,7 +5,7 @@ https://developers.arcgis.com/documentation/mapping-apis-and-services/get-starte
       name="viewport"
       content="initial-scale=1, maximum-scale=1, user-scalable=no"
     />
-    <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
+    <title>ArcGIS Egypt Mummy Map</title>
 
     <style>
       html,
@@ -135,16 +125,6 @@ https://developers.arcgis.com/documentation/mapping-apis-and-services/get-starte
             }),
           ],
         });
-        // const symbol = {
-        //   type: "web-style",
-        //   name: "Standing Cone",
-        //   styleName: "EsriThematicShapesStyle",
-        // };
-
-        // const webStyleSymbol = new WebStyleSymbol({
-        //   name: "Standing Cone",
-        //   styleName: "EsriThematicShapesStyle",
-        // });
 
         const symbol = new PointSymbol3D({
           symbolLayers: [
@@ -197,65 +177,6 @@ https://developers.arcgis.com/documentation/mapping-apis-and-services/get-starte
         };
 
         view.ui.add(legend, "top-right");
-        //{
-        //   type: "simple", // autocasts as new SimpleRenderer()
-        //   symbol: new PointSymbol3D({
-        //     symbolLayers: [
-        //       new ObjectSymbol3DLayer({
-        //         resource: {
-        //           // the dependencies referenced in the gltf file will be requested as well
-        //           href: "/Mummy.glb",
-        //         },
-        //         height: 0.5,
-        //         material: {
-        //           color: "red",
-        //         },
-        //       }),
-        //     ],
-        //   }),
-        //   visualVariables: [
-        //     {
-        //       type: "rotation",
-        //       field: "angle",
-        //       rotationType: "geographic",
-        //     },
-        //     {
-        //       type: "color",
-        //       field: "agg_cluster",
-        //       stops: [
-        //         {
-        //           value: "Child",
-        //           color: "#FFFFFF",
-        //         },
-        //         {
-        //           value: "Unclassified",
-        //           color: "#000000",
-        //         },
-        //       ],
-        //     },
-        //   ],
-        // };
-
-        //Random
-        //   defaultSymbol: symbol,
-        //   defaultLabel: "Unclassified",
-        //   field: "agg_cluster",
-        //   uniqueValueInfos: [
-        //     {
-        //       value: "Child",
-        //       symbol: childSymbol,
-        //     },
-        //     {
-        //       value: "Adult",
-        //       symbol: adultSymbol,
-        //     },
-        //     sceneLayer
-        //       .when(() => {
-        //         return layer.queryExtent();
-        //       })
-        //       .then((response) => {
-        //         view.goTo(response.extent);
-        //       });
       });
     </script>
   </head>
