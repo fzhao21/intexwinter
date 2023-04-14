@@ -25,6 +25,7 @@ function NavBar({ signOut, groups, authenticated, user }) {
     };
   }, []);
 
+  
   groups = "";
   if (
     isAuthenticated &&
