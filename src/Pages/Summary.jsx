@@ -5,7 +5,6 @@ import addBurialButton from '../img/AddRecordIcon.png'
 import ReactPaginate from 'react-paginate';
 import { Table } from 'react-bootstrap';
 
-
 const Summary = () => {      
     const [data, setData] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
