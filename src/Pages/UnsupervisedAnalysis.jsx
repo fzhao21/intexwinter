@@ -1,11 +1,11 @@
 import React from "react";
 
 const UnsupervisedAnalysis = (props) => {
-  const path_to_html = "/public/arcGIS.html";
+  const path_to_html = "/arcGIS.html";
   return (
     <>
       <iframe
-        src={process.env.PUBLIC_URL + path_to_html}
+        src={path_to_html}
         style={{ width: 1500, height: 700 }}
         title="GIS Map"
       ></iframe>
