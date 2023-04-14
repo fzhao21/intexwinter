@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Container from "react-bootstrap/Container";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -13,9 +13,9 @@ import awsExports from "../aws-exports";
 
 Amplify.configure(awsExports);
 function NavBar({ signOut, groups, authenticated, user }) {
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
+  console.log(isAuthenticated);
   useEffect(() => {
     const closeDropdown = () => setDropdownOpen(false);
     document.addEventListener("mouseenter", closeDropdown);
@@ -43,7 +43,9 @@ function NavBar({ signOut, groups, authenticated, user }) {
           <Nav className="me-auto links">
             {isAuthenticated === true ? (
               <>
-                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/">
+                  Home
+                </Nav.Link>
                 <AdminLink groups={groups} />
                 <NavDropdown title="Analysis" id="basic-nav-dropdown">
                   <NavDropdown.Item as={Link} to="/Summary">
@@ -65,8 +67,16 @@ function NavBar({ signOut, groups, authenticated, user }) {
               </>
             ) : (
               <>
-                <Nav.Link as={Link} to="/">Home</Nav.Link>
-                <Nav.Link as={Link} to="/Summary">Summary</Nav.Link>
+                <Nav.Link as={Link} to="/">
+                  Home
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  to="/Summary"
+                  authenticated={isAuthenticated}
+                >
+                  Summary
+                </Nav.Link>
                 <NavDropdown title="Analysis" id="basic-nav-dropdown">
                   <NavDropdown.Item as={Link} to="/SupervisedAnalysis">
                     Supervised Analysis
@@ -86,4 +96,4 @@ function NavBar({ signOut, groups, authenticated, user }) {
     </Navbar>
   );
 }
-export default NavBar
+export default NavBar;
