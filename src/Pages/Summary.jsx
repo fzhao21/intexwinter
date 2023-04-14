@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import React, { useEffect, useState, useMemo } from "react";
-import EditBurialRecord from "../Modal/EditBurialRecord";
-import AddBurialRecord from "../Modal/AddBurialRecord";
-import addBurialButton from "../img/AddRecordIcon.png";
-import ReactPaginate from "react-paginate";
-import { Table } from "react-bootstrap";
-
-const Summary = ({ authenticated }) => {
-  const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
-  const [updateItem, setUpdateItem] = useState([]);
-  const [modalAddOpen, setModalAddOpen] = useState(false);
-  const [modalEditOpen, setModalEditOpen] = useState(false);
-  const [deleteFlag, setDeleteFlag] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
-=======
 import React, { useEffect, useState, useMemo } from 'react'
 import EditBurialRecord from '../Modal/EditBurialRecord';
 import AddBurialRecord from '../Modal/AddBurialRecord';
@@ -35,7 +17,6 @@ const Summary = () => {
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
 
->>>>>>> 9b3793f (supervised)
 
   console.log(isAuthenticated);
 
@@ -65,12 +46,6 @@ const Summary = () => {
       id: id,
     };
 
-<<<<<<< HEAD
-    fetch(
-      "https://7o71cponk0.execute-api.us-west-1.amazonaws.com/data/delete",
-      {
-        method: "POST",
-=======
     const toggleConfirmation = (id) => {
       setSelectedId(id);
       setShowConfirmation(!showConfirmation);
@@ -83,7 +58,6 @@ const Summary = () => {
 
       fetch('https://7o71cponk0.execute-api.us-west-1.amazonaws.com/data/delete', {
         method: 'POST',
->>>>>>> 9b3793f (supervised)
         headers: {
           "Content-Type": "application/json",
         },
@@ -195,16 +169,8 @@ const Summary = () => {
           </button>
         </td>
         <td>
-<<<<<<< HEAD
-          <button
-            className="button"
-            onClick={() => handleDelete(item.id, data)}
-          >
-            Delete
-=======
           <button className="button" onClick={() => toggleConfirmation(item.id, data)} >
             Delete 
->>>>>>> 9b3793f (supervised)
             <div className="button__horizontal"></div>
             <div className="button__vertical"></div>
           </button>
@@ -212,12 +178,10 @@ const Summary = () => {
       </tr>
     ));
 
-<<<<<<< HEAD
   const handlePageClick = ({ selected }) => {
     const currentPage = selected + 1;
     setCurrentPage(currentPage);
   };
-=======
     return(
         <div style={{ width: "100%", overflowX: "auto", overflowY: "scroll" }}> 
           <Table className="BurialTable" striped bordered hover>
@@ -296,7 +260,6 @@ const Summary = () => {
         </div>
     )
 }
->>>>>>> 9b3793f (supervised)
 
   return (
     <div style={{ width: "100%", overflowX: "auto", overflowY: "scroll" }}>
