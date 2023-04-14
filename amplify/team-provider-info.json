@@ -10,17 +10,6 @@
       "StackName": "amplify-intexwinter-dev-192657",
       "StackId": "arn:aws:cloudformation:us-west-1:979342394978:stack/amplify-intexwinter-dev-192657/f4687310-d807-11ed-9f3b-061fe0f620fd",
       "AmplifyAppId": "d1q1mgn5av9d15"
-    },
-    "categories": {
-      "auth": {
-        "intexwinter74a8948c": {}
-      },
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d1q1mgn5av9d15",
-          "type": "cicd"
-        }
-      }
     }
   }
 }

@@ -1,0 +1,70 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-intexwinter-dev-192657-authRole",
+      "UnauthRoleArn": "arn:aws:iam::979342394978:role/amplify-intexwinter-dev-192657-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::979342394978:role/amplify-intexwinter-dev-192657-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-intexwinter-dev-192657-deployment",
+      "UnauthRoleName": "amplify-intexwinter-dev-192657-unauthRole",
+      "StackName": "amplify-intexwinter-dev-192657",
+      "StackId": "arn:aws:cloudformation:us-west-1:979342394978:stack/amplify-intexwinter-dev-192657/f4687310-d807-11ed-9f3b-061fe0f620fd",
+      "AmplifyAppId": "d1q1mgn5av9d15"
+    }
+  },
+  "auth": {
+    "intexwinter74a8948c": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OPTIONAL",
+        "mfaTypes": [
+          "TOTP"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 10,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "UserPoolId": "us-west-1_YE8qQXeWQ",
+        "AppClientIDWeb": "4copq9e8kur2no79smh5i3hedc",
+        "AppClientID": "34kk2s7k0j85k15c1jbv887613",
+        "IdentityPoolId": "us-west-1:b34ce78f-7c09-4209-9a7b-4dda8410dfc5",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-1:979342394978:userpool/us-west-1_YE8qQXeWQ",
+        "IdentityPoolName": "intexwinter74a8948c_identitypool_74a8948c__dev",
+        "UserPoolName": "intexwinter74a8948c_userpool_74a8948c"
+      },
+      "lastPushTimeStamp": "2023-04-14T17:16:59.562Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-intexwinter-dev-192657-deployment/amplify-cfn-templates/auth/intexwinter74a8948c-cloudformation-template.json",
+        "logicalId": "authintexwinter74a8948c"
+      },
+      "lastPushDirHash": "bmSyh+M+HT1AMy8z4NBcryjKy7s="
+    }
+  },
+  "function": {},
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "type": "cicd"
+    }
+  }
+}
