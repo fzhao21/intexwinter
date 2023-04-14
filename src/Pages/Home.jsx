@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import pyramid from "../img/pyramid.jpg";
 import { CookieFooter } from "../components/CookieFooter";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
-
-const Home = (props) => {
+const Home = ({ authenticated }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(authenticated)
+  console.log(isAuthenticated);
   return (
     <>
       <div className="Home">
@@ -35,7 +36,7 @@ const Home = (props) => {
             </p>
           </div>
         </div>
-        <NavLink as={NavLink} to="/Summary" className="link" >
+        <NavLink as={NavLink} to="/Summary" className="link">
           <span className="mask">
             <div className="link-container">
               <span className="link-title1 title">Burial Records</span>

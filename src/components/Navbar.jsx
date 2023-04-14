@@ -7,7 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import AdminLink from "./AdminLink";
 import Logout from "../Pages/Logout";
-import { Amplify } from "aws-amplify";
+import { Auth, Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import awsExports from "../aws-exports";
 
@@ -15,15 +15,19 @@ Amplify.configure(awsExports);
 function NavBar({ signOut, groups, authenticated, user }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
-  console.log(isAuthenticated);
   useEffect(() => {
+    setIsAuthenticated(true);
     const closeDropdown = () => setDropdownOpen(false);
     document.addEventListener("mouseenter", closeDropdown);
     return () => {
       document.removeEventListener("mouseleave", closeDropdown);
     };
   }, []);
-  groups = "";
+
+  console.log(isAuthenticated);
+  if (isAuthenticated) {
+    groups = "archeologist";
+  }
   // if (
   //   isAuthenticated &&
   //   user.signInUserSession.accessToken.payload.hasOwnProperty("cognito:groups")
@@ -31,6 +35,7 @@ function NavBar({ signOut, groups, authenticated, user }) {
   //   groups = user.signInUserSession.accessToken.payload["cognito:groups"];
   //   groups = groups[0];
   // }
+
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
   return (
     <Navbar className="Nav" expand="lg">
@@ -43,12 +48,16 @@ function NavBar({ signOut, groups, authenticated, user }) {
           <Nav className="me-auto links">
             {isAuthenticated === true ? (
               <>
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={Link} to="/" authenticated={isAuthenticated}>
                   Home
                 </Nav.Link>
                 <AdminLink groups={groups} />
                 <NavDropdown title="Analysis" id="basic-nav-dropdown">
-                  <NavDropdown.Item as={Link} to="/Summary">
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/Summary"
+                    authenticated={isAuthenticated}
+                  >
                     Summary
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/Filter">

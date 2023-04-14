@@ -47,7 +47,7 @@ function Login() {
     return (
       <>
         <Navbar user={user} authenticated={authenticated} />
-        <Home />
+        <Home authenticated={authenticated}/>
       </>
     );
   }
@@ -58,7 +58,7 @@ function Login() {
         <h1>Login</h1>
         <form onSubmit={handleLogin}>
           <label>
-            Username (email):
+            Email:
             <input
               type="email"
               value={username}
