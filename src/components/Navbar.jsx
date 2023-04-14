@@ -14,7 +14,7 @@ import awsExports from "../aws-exports";
 Amplify.configure(awsExports);
 function NavBar({ signOut, groups, authenticated, user }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  let [isAuthenticated, setIsAuthenticated] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   useEffect(() => {
     setIsAuthenticated(authenticated);

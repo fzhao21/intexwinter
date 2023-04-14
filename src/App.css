@@ -291,7 +291,7 @@ body {
 } */
 
 .add{
-  margin-left: calc(0.2*100vw);
+  margin-left: calc(0.3*100vw);
   margin-top: calc(-0.04*100vh);
 }
 
@@ -614,7 +614,7 @@ input {
   background: 0;
   border: 0;
   outline: none;
-  width: 40vw;
+  width: 15vw;
   max-width: 400px;
   font-size: 1.5em;
   transition: padding 0.3s 0.2s ease;
@@ -654,4 +654,9 @@ input {
 .modalButton {
   margin-left: calc(0.15*100vw);
   margin-right: calc(0.01*100vw)
+}
+
+.result {
+  margin-top: 10vh;
+  margin-left: 40vw;
 }
