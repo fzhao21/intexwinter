@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
-
+@import url("https://js.arcgis.com/4.26/esri/themes/light/main.css");
 .App {
   text-align: center;
   overflow-y: scroll;
@@ -50,7 +50,7 @@
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border-style: solid;
   border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: #41403e;
   cursor: pointer;
@@ -59,7 +59,7 @@
   font-size: 1rem;
   line-height: 23px;
   outline: none;
-  padding: .75rem;
+  padding: 0.75rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
   border-bottom-left-radius: 15px 255px;
@@ -69,12 +69,11 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-
 }
 
 /* NavBar */
 .Nav {
-  height: calc(0.13*100vh);
+  height: calc(0.13 * 100vh);
   background-color: rgba(197, 175, 155, 1);
   position: fixed !important;
   top: 0;
@@ -82,11 +81,10 @@
   width: 100%;
 }
 
-
 .Nav .Title {
   font-size: 37px;
   text-transform: uppercase;
-  font-family: 'Gambetta', serif;
+  font-family: "Gambetta", serif;
   letter-spacing: -3px;
   transition: 700ms ease;
   font-variation-settings: "wght" 311;
@@ -98,62 +96,58 @@
 }
 
 .Nav .Title:hover {
-  font-variation-settings: "wght" 582; 
+  font-variation-settings: "wght" 582;
   letter-spacing: 1px;
 }
 
-.Nav .links{
+.Nav .links {
   align-self: right;
 }
 
 .navbar .dropdown-item:hover,
-.navbar .dropdown-item:active{
+.navbar .dropdown-item:active {
   background-color: rgba(197, 175, 155, 1);
 }
 
-
 .LogButton:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
 .LogButton:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 
 .unauthenticatedHome {
-  margin-left: calc(0.1*100vw);
-  margin-right: calc(0.03*100vw);
+  margin-left: calc(0.1 * 100vw);
+  margin-right: calc(0.03 * 100vw);
 }
 /* Home */
-.Home{
+.Home {
   display: flex;
 }
 
 .Home img {
-  height: calc(0.87*100vh);
+  height: calc(0.87 * 100vh);
   display: inline-block;
 }
 
 .Home .projectDescription {
   display: inline-block;
-  margin-top: calc(0.1*100vh);
+  margin-top: calc(0.1 * 100vh);
   margin-left: calc(0.05 * 100vw);
   margin-right: calc(0.08 * 100vw);
-  line-height:3.7ch;
-  width: calc(0.5*100vw);
-
+  line-height: 3.7ch;
+  width: calc(0.5 * 100vw);
 }
 
 .Home .projectDescription h1 {
   font-size: 20px;
 }
 
-
 * {
   box-sizing: border-box;
 }
-
 
 body {
   font-family: "Quicksand", sans-serif;
@@ -171,8 +165,8 @@ body {
   color: #000;
   text-decoration: none;
   display: flex;
-  margin-top: calc(0.1*100vh);
-  margin-right: calc(0.06*100vw);
+  margin-top: calc(0.1 * 100vh);
+  margin-right: calc(0.06 * 100vw);
 }
 
 .link :hover {
@@ -185,13 +179,11 @@ body {
   padding: 0;
   height: 20px;
   width: 200px;
-  margin-top: calc(0.03*100vh);
+  margin-top: calc(0.03 * 100vh);
 
   /*  Remove overflow to see how it works　:) */
   overflow: hidden;
 }
-
-
 
 .link-container {
   transition: transform 0.4s ease;
@@ -209,14 +201,13 @@ body {
 
 .link-title1 {
   transform-origin: right center;
-  padding-right: calc(-0.03*100vw);
+  padding-right: calc(-0.03 * 100vw);
 }
 
 .link-title2 {
   transform-origin: left center;
   transform: rotate(20deg);
-  padding-right: calc(-0.03*100vw);
-
+  padding-right: calc(-0.03 * 100vw);
 }
 
 .link-icon {
@@ -228,9 +219,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: calc(0.05*100vw);
-  margin-top: calc(0.03*100vh);
-  margin-left: calc(-0.025*100vw);
+  margin-right: calc(0.05 * 100vw);
+  margin-top: calc(0.03 * 100vh);
+  margin-left: calc(-0.025 * 100vw);
 
   /*  Remove overflow to see how it works　:) */
   overflow: hidden;
@@ -289,11 +280,11 @@ body {
   position: absolute;
   padding: 0.2em 1em;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border: 0;
   background: transparent;
-  color: black;;
+  color: black;
   text-transform: uppercase;
   letter-spacing: 0.25em;
   outline: none;
@@ -307,7 +298,8 @@ body {
 .button:hover {
   background: rgba(100, 0, 0, 0.03);
 }
-.button__horizontal, .button__vertical {
+.button__horizontal,
+.button__vertical {
   position: absolute;
   top: var(--horizontal-offset, 0);
   right: var(--vertical-offset, 0);
@@ -316,7 +308,8 @@ body {
   transition: transform 0.8s ease;
   will-change: transform;
 }
-.button__horizontal::before, .button__vertical::before {
+.button__horizontal::before,
+.button__vertical::before {
   content: "";
   position: absolute;
   border: inherit;
@@ -351,25 +344,24 @@ body {
 }
 
 .button img {
-  height: calc(0.02*100vh);
+  height: calc(0.02 * 100vh);
 }
 
 /* .AddBurialForm {
   line-height: 1.9rem;
 } */
 
-.AddBurialForm label{
-  margin-right: calc(0.01*100vw);
-  padding-top: calc(0.008*100vh);
+.AddBurialForm label {
+  margin-right: calc(0.01 * 100vw);
+  padding-top: calc(0.008 * 100vh);
   font-weight: 500;
-
 }
 
 label {
   font-size: 14px;
 }
 
-.AddBurialForm input{
+.AddBurialForm input {
   border-top: none;
   border-left: none;
   border-right: none;
@@ -390,7 +382,7 @@ input {
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border-style: solid;
   border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: #41403e;
   cursor: pointer;
@@ -399,7 +391,7 @@ input {
   font-size: 1rem;
   line-height: 23px;
   outline: none;
-  padding: .75rem;
+  padding: 0.75rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
   border-bottom-left-radius: 15px 255px;
@@ -412,20 +404,19 @@ input {
 }
 
 .button-paper:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
 .button-paper:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
-
 
 .ModalHeader {
   background-color: rgba(194, 148, 107, 0.71);
 }
 
-.BurialTable{
+.BurialTable {
   overflow: scroll;
   position: relative;
   font-size: 14px;
@@ -435,17 +426,17 @@ input {
   padding-top: 100px;
 }
 
-.pagination a{
+.pagination a {
   display: block;
   margin-right: 5px;
   color: black;
 }
 
-.pagination a:hover{
+.pagination a:hover {
   color: rgba(194, 148, 107, 0.71);
 }
 
-.BurialTableHead td{
+.BurialTableHead td {
   padding-top: 100px !important;
 }
 
@@ -458,7 +449,7 @@ input {
 }
 
 .Footer {
-  height: calc(0.08*100vh);
+  height: calc(0.08 * 100vh);
   background-color: rgba(197, 175, 155, 1);
   position: fixed !important;
   bottom: 0;

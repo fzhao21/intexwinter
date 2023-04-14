@@ -1,0 +1,266 @@
+<!--
+
+To run this demo, you need to replace 'YOUR_API_KEY' with an API key from the ArcGIS Developers dashboard.
+
+Sign up for a free account and get an API key.
+
+https://developers.arcgis.com/documentation/mapping-apis-and-services/get-started/
+
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.26/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.26/"></script>
+
+    <script>
+      require([
+        "esri/config",
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/Graphic",
+        "esri/layers/GraphicsLayer",
+        "esri/layers/SceneLayer",
+        "esri/views/SceneView",
+        "esri/symbols/PointSymbol3D",
+        "esri/symbols/ObjectSymbol3DLayer",
+        "esri/symbols/WebStyleSymbol",
+        "esri/renderers/visualVariables/RotationVariable",
+        "esri/widgets/Legend",
+      ], function (
+        esriConfig,
+        Map,
+        MapView,
+        Graphic,
+        GraphicsLayer,
+        SceneLayer,
+        SceneView,
+        PointSymbol3D,
+        ObjectSymbol3DLayer,
+        WebStyleSymbol,
+        RotationVariable,
+        Legend
+      ) {
+        esriConfig.apiKey =
+          "AAPK2b0d5f3f35c241118e84bc177a8cff91lSPnySiS6M2v6n1p874qSz87UQNAGHfIquZ6eRBQMdHDVNceG10k83yY9TJr0H3o";
+        const map = new Map({
+          basemap: "arcgis-imagery-standard",
+        });
+        // Create the SceneView
+        const view = new SceneView({
+          container: "viewDiv",
+          map: map,
+          center: [31.0431541, 29.3942332],
+          zoom: 20,
+        });
+        view.when(() => {
+          map.ground.opacity = 1;
+        });
+        // Create SceneLayer and add to the map
+        const sceneLayer = new SceneLayer({
+          portalItem: {
+            // id: "a365a43dba3047d1b18c43e248fc70e7",
+            id: "34bc2ab31fce4be6b3c9078fdfb2d068",
+          },
+          popupEnabled: true,
+        });
+        map.add(sceneLayer);
+        // Create MeshSymbol3D for symbolizing SceneLayer
+
+        const defaultSymbol = new PointSymbol3D({
+          symbolLayers: [
+            new ObjectSymbol3DLayer({
+              resource: {
+                // the dependencies referenced in the gltf file will be requested as well
+                href: "/Mummy.glb",
+              },
+              height: 0.5,
+              material: {
+                color: "#d17943",
+              },
+            }),
+          ],
+        });
+
+        const childSymbol = new PointSymbol3D({
+          symbolLayers: [
+            new ObjectSymbol3DLayer({
+              resource: {
+                // the dependencies referenced in the gltf file will be requested as well
+                href: "/Mummy.glb",
+              },
+              height: 0.5,
+              material: {
+                color: "#03fcf4",
+              },
+            }),
+          ],
+        });
+
+        const legend = new Legend({
+          view: view,
+        });
+        const adultSymbol = new PointSymbol3D({
+          symbolLayers: [
+            new ObjectSymbol3DLayer({
+              resource: {
+                // the dependencies referenced in the gltf file will be requested as well
+                href: "/Mummy.glb",
+              },
+              height: 0.5,
+              material: {
+                color: "#fc2c03",
+              },
+            }),
+          ],
+        });
+        // const symbol = {
+        //   type: "web-style",
+        //   name: "Standing Cone",
+        //   styleName: "EsriThematicShapesStyle",
+        // };
+
+        // const webStyleSymbol = new WebStyleSymbol({
+        //   name: "Standing Cone",
+        //   styleName: "EsriThematicShapesStyle",
+        // });
+
+        const symbol = new PointSymbol3D({
+          symbolLayers: [
+            new ObjectSymbol3DLayer({
+              resource: {
+                href: "/Mummy.glb",
+              },
+              height: 12,
+              material: {
+                color: "red",
+              },
+            }),
+          ],
+        });
+        //Known Working 3d Model code
+        // Add the renderer to sceneLayer
+        sceneLayer.renderer = {
+          type: "unique-value", // autocasts as new UniqueValueRenderer()
+          legendOptions: {
+            title: "Route type",
+          },
+          defaultSymbol: defaultSymbol,
+          defaultLabel: "Other",
+          field: "agg_cluster",
+
+          uniqueValueInfos: [
+            {
+              value: "Unclassified",
+              symbol: defaultSymbol,
+              label: "Unclassified",
+            },
+            {
+              value: "Child", // code for interstates/freeways
+              symbol: childSymbol,
+              label: "Child",
+            },
+            {
+              value: "Adult", // code for U.S. highways
+              symbol: adultSymbol,
+              label: "Adult",
+            },
+          ],
+          visualVariables: [
+            {
+              type: "rotation",
+              field: "angle",
+              rotationType: "geographic",
+            },
+          ],
+        };
+
+        view.ui.add(legend, "top-right");
+        //{
+        //   type: "simple", // autocasts as new SimpleRenderer()
+        //   symbol: new PointSymbol3D({
+        //     symbolLayers: [
+        //       new ObjectSymbol3DLayer({
+        //         resource: {
+        //           // the dependencies referenced in the gltf file will be requested as well
+        //           href: "/Mummy.glb",
+        //         },
+        //         height: 0.5,
+        //         material: {
+        //           color: "red",
+        //         },
+        //       }),
+        //     ],
+        //   }),
+        //   visualVariables: [
+        //     {
+        //       type: "rotation",
+        //       field: "angle",
+        //       rotationType: "geographic",
+        //     },
+        //     {
+        //       type: "color",
+        //       field: "agg_cluster",
+        //       stops: [
+        //         {
+        //           value: "Child",
+        //           color: "#FFFFFF",
+        //         },
+        //         {
+        //           value: "Unclassified",
+        //           color: "#000000",
+        //         },
+        //       ],
+        //     },
+        //   ],
+        // };
+
+        //Random
+        //   defaultSymbol: symbol,
+        //   defaultLabel: "Unclassified",
+        //   field: "agg_cluster",
+        //   uniqueValueInfos: [
+        //     {
+        //       value: "Child",
+        //       symbol: childSymbol,
+        //     },
+        //     {
+        //       value: "Adult",
+        //       symbol: adultSymbol,
+        //     },
+        //     sceneLayer
+        //       .when(() => {
+        //         return layer.queryExtent();
+        //       })
+        //       .then((response) => {
+        //         view.goTo(response.extent);
+        //       });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
