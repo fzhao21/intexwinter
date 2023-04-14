@@ -491,9 +491,6 @@ input {
   width: 100%;
   font-size: 10px;
 }
-<<<<<<< HEAD
-/*  */
-=======
 
 .scroll{
   overflow-y: visible scroll;
@@ -563,4 +560,3 @@ input {
   margin-left: calc(0.15*100vw);
   margin-right: calc(0.01*100vw)
 }
->>>>>>> 2de4cc9 (pls)
