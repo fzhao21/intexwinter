@@ -14,9 +14,10 @@ import awsExports from "../aws-exports";
 Amplify.configure(awsExports);
 function NavBar({ signOut, groups, authenticated, user }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
+  let [isAuthenticated, setIsAuthenticated] = useState("");
+
   useEffect(() => {
-    setIsAuthenticated(true);
+    setIsAuthenticated(authenticated);
     const closeDropdown = () => setDropdownOpen(false);
     document.addEventListener("mouseenter", closeDropdown);
     return () => {
@@ -24,9 +25,8 @@ function NavBar({ signOut, groups, authenticated, user }) {
     };
   }, []);
 
-  console.log(isAuthenticated);
   if (isAuthenticated) {
-    groups = "archeologist";
+    groups = "admin";
   }
   // if (
   //   isAuthenticated &&
@@ -76,16 +76,22 @@ function NavBar({ signOut, groups, authenticated, user }) {
               </>
             ) : (
               <>
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={Link} to="/" authenticated={isAuthenticated}>
                   Home
                 </Nav.Link>
-                <Nav.Link
-                  as={Link}
-                  to="/Summary"
-                  authenticated={isAuthenticated}
-                >
-                  Summary
-                </Nav.Link>
+                <AdminLink groups={groups} />
+                <NavDropdown title="Analysis" id="basic-nav-dropdown">
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/Summary"
+                    authenticated={isAuthenticated}
+                  >
+                    Summary
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/Filter">
+                    Filtering
+                  </NavDropdown.Item>
+                </NavDropdown>
                 <NavDropdown title="Analysis" id="basic-nav-dropdown">
                   <NavDropdown.Item as={Link} to="/SupervisedAnalysis">
                     Supervised Analysis

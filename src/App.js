@@ -40,7 +40,7 @@ function App({ signOut, user, authenticated }) {
         <div className="bg-white">
           <NavBar authenticated={authenticated} groups={groups} />
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<Home authenticated={true}/>}></Route>
             <Route path="/Admin" element={<Admin />}></Route>
             <Route path="/Summary" element={<Summary />}></Route>
             <Route path="/Signup" element={<Signup />}></Route>

@@ -13,8 +13,9 @@ const Summary = ({ authenticated }) => {
   const [modalAddOpen, setModalAddOpen] = useState(false);
   const [modalEditOpen, setModalEditOpen] = useState(false);
   const [deleteFlag, setDeleteFlag] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
 
-  console.log(authenticated);
+  console.log(isAuthenticated);
 
   const handleOpenModalAdd = () => {
     setModalAddOpen(true);

@@ -10,44 +10,30 @@ function Login() {
   const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   console.log(authenticated);
-  // }, [authenticated]);
+  useEffect(() => {
+    setAuthenticated(true);
+    console.log(authenticated);
+  }, [authenticated]);
 
   async function handleLogin(event) {
     event.preventDefault();
 
     try {
       const user = await Auth.signIn(username, password);
-      console.log("User signed in");
-
-      // Check if user has 2FA enabled
-      const { challengeName } = user.challengeName;
-      if (challengeName === "SOFTWARE_TOKEN_MFA") {
-        // Prompt user for TOTP token
-        const token = prompt("Enter TOTP token");
-        const mfaUser = await Auth.confirmSignIn(
-          user,
-          token,
-          "SOFTWARE_TOKEN_MFA"
-        );
-        console.log("User signed in with TOTP", mfaUser);
-        setUser(mfaUser);
-        setAuthenticated(true);
-      } else {
-        setUser(user);
-        setAuthenticated(true);
-      }
+      console.log("User signed in", user);
+      setUser(user);
+      setAuthenticated(true);
     } catch (error) {
       console.log("Sign in error:", error);
     }
   }
+  console.log(authenticated);
 
   if (authenticated === true) {
     return (
       <>
         <Navbar user={user} authenticated={authenticated} />
-        <Home authenticated={authenticated}/>
+        <Home authenticated={authenticated} />
       </>
     );
   }
