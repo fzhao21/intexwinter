@@ -75,4 +75,4 @@ function NavBar({ signOut, groups, authenticated, user }) {
     </Navbar>
   );
 }
-export default NavBar;
+export default NavBar
