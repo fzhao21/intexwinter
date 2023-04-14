@@ -6,10 +6,10 @@ customHeaders:
       - key: Content-Security-Policy
         value: >-
           default-src 'self' 'unsafe-inline' https://*.arcgis.com
-          'unsafe-inline' https://arcgis.com 'unsafe-inline' blob:; style-src 'self'
-          https://*.arcgis.com 'unsafe-inline' https://arcgis.com
+          'unsafe-inline' https://arcgis.com 'unsafe-inline' blob:; style-src
+          'self' https://*.arcgis.com 'unsafe-inline' https://arcgis.com
           'unsafe-inline' https://fonts.googleapis.com
-          https://master.d1q1mgn5av9d15.amplifyapp.com blob:; connect-src
+          https://master.d1q1mgn5av9d15.amplifyapp.com blob:; connect-src https://*.arcgis.com 'unsafe-inline'
           https://*.is404.net 'unsafe-inline'
           https://uhl5dzwwzeipqz247g5upmbdsy0fktxn.lambda-url.us-west-1.on.aws/
           https://iqud4n7qbgvxc37to3tyuszkze0bkfhq.lambda-url.us-west-1.on.aws/
