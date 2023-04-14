@@ -18,7 +18,6 @@ import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Auth, Amplify } from "aws-amplify";
 
-
 function App({ signOut, user }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
