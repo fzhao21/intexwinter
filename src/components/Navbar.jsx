@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,9 +10,11 @@ import Logout from "../Pages/Logout";
 import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import awsExports from "../aws-exports";
+
 Amplify.configure(awsExports);
 
 function NavBar({ signOut, groups, authenticated, user }) {
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
@@ -25,16 +26,15 @@ function NavBar({ signOut, groups, authenticated, user }) {
       document.removeEventListener("mouseleave", closeDropdown);
     };
   }, []);
-
-
-  groups = "";
-  if (
-    isAuthenticated &&
-    user.signInUserSession.accessToken.payload.hasOwnProperty("cognito:groups")
-  ) {
-    groups = user.signInUserSession.accessToken.payload["cognito:groups"];
-    groups = groups[0];
-  }
+  // if (
+  //   isAuthenticated && user
+  //   // user.signInUserSession.accessToken.payload.hasOwnProperty("cognito:groups")
+  // ) {
+  //   // groups = user.signInUserSession.accessToken.payload["cognito:groups"];
+  //   // groups = groups[0];
+  //   console.log(user.signInUserSession)
+  // }
+  
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   return (

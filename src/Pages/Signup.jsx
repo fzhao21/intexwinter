@@ -18,6 +18,7 @@ function Signup() {
           email: email,
         },
       });
+
       console.log("User signed up", newUser);
 
       setSignupSuccess(true);
